@@ -1,0 +1,5 @@
+[05-Oct-2019 05:46:40 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/ksdbl5phukwt/public_html/montrealgents.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[05-Oct-2019 05:46:43 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/ksdbl5phukwt/public_html/montrealgents.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[05-Oct-2019 02:10:26 America/Phoenix] PHP Notice:  Undefined index: OS in /home/ksdbl5phukwt/public_html/montrealgents.com/mail_test.php on line 3525
+[05-Oct-2019 02:11:03 America/Phoenix] PHP Notice:  Undefined index: OS in /home/ksdbl5phukwt/public_html/montrealgents.com/mail_test.php on line 3525
+[05-Oct-2019 02:19:46 America/Phoenix] PHP Notice:  Undefined index: OS in /home/ksdbl5phukwt/public_html/montrealgents.com/mail_test.php on line 3525
