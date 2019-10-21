@@ -54,8 +54,13 @@
         <!--Datatable CSS-->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
+        
         <!--Date CSS-->
-        <link rel="stylesheet" href="{{asset('frontend/date/jquery.datepick.css')}}">
+        <!-- <link rel="stylesheet" href="{{asset('frontend/date/jquery.datepick.css')}}"> -->
+        <link rel="stylesheet" href="{{asset('frontend/date/humanity.datepick.css')}}">
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/hot-sneaks/jquery-ui.css">
+        <link rel="stylesheet" href="{{asset('frontend/date/ui-hot-sneaks.datepick.css')}}">
+        
 
         
 
@@ -80,6 +85,8 @@
         <script src="{{asset('frontend/js/vendor/jquery-1.12.0.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('frontend/date/jquery.plugin.js')}}"></script> 
         <script type="text/javascript" src="{{asset('frontend/date/jquery.datepick.js')}}"></script> 
+        <script type="text/javascript" src="{{asset('frontend/date/jquery.datepick.ext.js')}}"></script> 
+        
 		<!-- bootstrap js -->
         <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
         <!-- parallax js -->

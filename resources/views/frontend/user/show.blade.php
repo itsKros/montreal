@@ -38,6 +38,7 @@
 }
 .weekend .wrap-input span{position: absolute;}
 
+
         .section {
             padding-top: 90px;
         }
@@ -122,9 +123,6 @@
             width: 100%;
         }
         
-
-        
-
         .wrap-input span {
             position: absolute;
             top: 50%;
@@ -371,6 +369,7 @@
                                                 <input type="submit" class="btn btn-primary kbtn" value="Submit" />
                                             </div>
                                         </form>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -380,16 +379,29 @@
             </div>
         </section>
         <!-- request section end -->
-
+        
 @endsection
+
+<?php 
+
+$ed = $user->engagedates;
+$engagedates=explode(',',$ed);
+
+
+
+?>
+
+
 
 @section('js')
 <script>
 
-
+                            
+    
+    
 
     
-    var date = new Date();
+    let date = new Date();
     date.setDate(date.getDate() + 90);
     $("#date").datetimepicker({
         format: 'mm/dd/yyyy',
@@ -399,6 +411,13 @@
         startView:2,
         todayHighlight:true,
         datesDisabled: [
+            
+            @foreach ($engagedates as $engagedate)
+
+                "{{$engagedate}}",
+
+            @endforeach
+            
             @foreach ($bookings as $booking)
                 
                 

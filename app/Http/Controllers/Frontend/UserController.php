@@ -187,6 +187,23 @@ class UserController extends Controller
         $user = User::find($user_id);
         return view('frontend.user.myavailability')->with('user', $user);
     }
+
+    /**
+     * MODELS AVAILABILITY (Edit)
+     */
+    public function engagedates(Request $request)
+    {
+        //dd($request);
+        $this->validate($request, [
+            'engagedates' => ''
+        ]);
+
+        $user = Auth::user();
+        $user->engagedates = $request->engagedates;
+        $user->save();
+        return redirect('my-availability')->with("success","Engage dates updated successfully !");
+        
+    }
 }
 
 

@@ -50,6 +50,7 @@ Route::get('/my-gallery/', 'Frontend\UserController@mygallery')->name('my-galler
 Route::post('/my-gallery', 'Frontend\UserController@galleryfeatured')->name('galleryfeatured');
 Route::get('/my-booking/', 'Frontend\UserController@mybooking')->name('my-booking');
 Route::get('/my-availability/', 'Frontend\UserController@myavailability')->name('my-availability');
+Route::post('/my-availability', 'Frontend\UserController@engagedates')->name('engagedates');
 Route::resource('gallery', 'Frontend\GalleryController');
 Route::view('/checkout', 'checkout-page');
 Route::post('/checkout', 'PaymentController@createPayment')->name('create-payment');
