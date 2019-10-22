@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Booking;
+use App\Admin;
 use Illuminate\Http\Request;
+use Mail;
+
 /** Paypal Details classes **/
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
@@ -17,6 +20,7 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
 use PayPal\Exception\PayPalConnectionException;
+
 
 class BookingController extends Controller
 {
@@ -87,6 +91,36 @@ class BookingController extends Controller
         $booking->time = $request->time;
         $booking->address = $request->address;
         $booking->save();
+
+        //To admin
+        Mail::send([], [], function ($message) use ($request) {
+            $admin = Admin::find(1);
+            $message->from('booking@montrealgents.com', 'Montreal Gentleman');
+            $message->to($admin->email)
+            ->subject('New Appointment For '.$request->modelname)
+            ->setBody('<h3 style="font-weight:normal;">Hi, here is new appointment booked for:  <strong>'.$request->modelname.'</strong></h3>
+            <p><em>Please check. </em></p><p><a href="'.route('admin.login').'">'.route('admin.login').'</a></p>','text/html');
+        });
+
+        //To Model
+        Mail::send([], [], function ($message) use ($request) {
+            $message->from('booking@montrealgents.com', 'Montreal Gentleman');
+            $message->to($request->modelemail)
+            ->subject('New Appointment For You '.$request->modelname)
+            ->setBody('<h3 style="font-weight:normal;">Hi, here is new appointment booked for you <strong>'.$request->modelname.'</strong></h3>
+            <p><em>Please login and check your my booking section. </em></p><p><a href="'.route('login').'">'.route('login').'</a></p>','text/html');
+        });
+
+
+        //To Client
+        Mail::send([], [], function ($message) use ($request) {
+            $message->from('booking@montrealgents.com', 'Montreal Gentleman');
+            $message->to($request->email)
+            ->subject('Hi! '.$request->name.' this is '.$request->modelname)
+            ->setBody('<h3 style="font-weight:normal;">Hello there, thanks for choosing me , you can call me <b>'.$request->modelname.'</b> and I’m sure I’ll please you on the event day. <br>Looking forward to see you.<br><br>Love '.$request->modelname.'</h3>
+            <br><p><em>Will contact you soon.</em></p>','text/html');
+        });
+
         // Amount received as request is validated here.
         $pay_amount = $request->package;
 

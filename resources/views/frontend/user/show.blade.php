@@ -364,7 +364,8 @@
                                                 <textarea class="input" name="address" id="address" required placeholder="Place to meet"></textarea>
                                             </div>
                                             <input type="hidden" value="{{$user->id}}"  name="modelid">
-                                            <input type="hidden" value="{{$user->name}}" name="modelname"> 
+                                            <input type="hidden" value="{{$user->name}}" name="modelname">
+                                            <input type="hidden" value="{{$user->email}}" name="modelemail">  
                                             <div class="container-contact-form-btn">
                                                 <input type="submit" class="btn btn-primary kbtn" value="Submit" />
                                             </div>
